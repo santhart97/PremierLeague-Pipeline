@@ -1,13 +1,10 @@
-def clean_data(x):
-    #remove null values
-    x.dropna()
-    #remove duplicates
-    x.drop_duplicates()
-    #remove columns
-    x.drop(['club_involved_name', 'fee', 'league_name', 'season'], axis = 1 )
+def clean_dataset(x):
+    # Removes null values.
+    x.isnull().sum().sort_values(ascending=False)
     
+    # Eliminates duplicate values
+    x.drop_duplicates()
+
     return x
-
-
    
 
