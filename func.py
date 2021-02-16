@@ -1,12 +1,18 @@
-def clean_dataset(x):
-    # Removes null values.
-    x.isnull().sum().sort_values(ascending=False)
+def cleaning_data(data):
     
-    # Eliminates duplicate values
-    x.drop_duplicates()
+    # Eliminar columnas no relevantes para el análisis.
     
-    x.drop(['club_involved_name', 'year', 'fee'] axis = 1 )
+    data = data.drop(['fee', 'year', 'club_involved_name', 'year'], axis = 1 )
+    # Contar valores nulos.
 
-    return x
-   
-
+    data.isnull().sum().sort_values(ascending=False)
+    
+    # Elimininar valores nulos.
+    
+    data.dropna()
+    
+    # Eliminar valore duplicados.
+    
+    data.drop_duplicates()
+    
+    # Mostrar distritos correctamente.
