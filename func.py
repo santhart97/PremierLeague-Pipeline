@@ -4,6 +4,8 @@ def clean_dataset(x):
     
     # Eliminates duplicate values
     x.drop_duplicates()
+    
+    x.drop(['club_involved_name', 'year', 'fee'] axis = 1 )
 
     return x
    
